@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини-справочник</title>
+</head>
+<body>
+    <?php if (!empty($flash)) : ?>
+        <p style="color:<?= $flash['color'] ?>"><?= $flash['message'] ?></p>
+    <?php endif; ?>
+    <section>
+        <h2>Добавление нового контакта</h2>
+        <form method="post">
+            <div>
+                <label>
+                    Имя
+                    <input type="text" name="name" value="<?= htmlspecialchars($params['name']) ?>"/>
+                </label>
+                <label>
+                    Номер телефона
+                    <input type="text" name="phoneNumber" value="<?= htmlspecialchars($params['phoneNumber']) ?>"/>
+                </label>
+                <input type="submit" value="Добавить" />
+            </div>
+        </form>
+    </section>
+    <br>
+    <form method="get" action="contacts.php">
+        <input type="submit" value="Вернуться к списку контактов" />
+    </form>
+</body>
+</html>
