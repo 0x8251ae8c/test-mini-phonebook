@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини-справочник</title>
+    <style>
+        td, th {
+            padding: 10px;
+        }
+        tr:nth-child(2n) {
+            background: #E5E5E5;
+        }
+    </style>
+</head>
+<body>
+    <?php if (!empty($flash)) : ?>
+        <p style="color:<?= $flash['color'] ?>"><?= $flash['message'] ?></p>
+    <?php endif; ?>
+    <section>
+        <h2>Список контактов</h2>
+        <table>
+            <tr>
+                <th>Имя</th>
+                <th>Номер телефона</th>
+                <th></th>
+            </tr>
+            <?php while ($row = $contacts->fetch_assoc()) : ?>
+                <tr>
+                    <td><?= htmlspecialchars($row['name']) ?></td>
+                    <td><?= htmlspecialchars($row['phone_number']) ?></td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="contactId" value=<?= $row['id'] ?>>
+                            <input type="submit" value="удалить" />
+                        </form>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </table>
+    </section>
+    <br>
+    <form method="get" action="add.php">
+        <input type="submit" value="Добавить новый контакт" />
+    </form>
+</body>
+</html>
