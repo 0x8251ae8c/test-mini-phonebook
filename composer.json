@@ -1,0 +1,18 @@
+{
+    "name": "alexander/test-mini-phonebook",
+    "description": "Test project on PHP-intern position in Teamlab.pro",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Test\\Mini\\Phonebook\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "0x8251ae8c",
+            "email": "99046156+0x8251ae8c@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
